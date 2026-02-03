@@ -1,35 +1,28 @@
 {
-  "name": "proshop2",
+  "name": "proshop-microfrontends",
   "version": "2.0.0",
-  "type": "module",
-  "description": "Ecommerce application built with the MERN stack",
-  "main": "server.js",
+  "private": true,
+  "description": "ProShop ecommerce with micro-frontends architecture",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "generate-toc": "markdown-toc -i readme.md"
+    "server": "npm run dev --prefix apps/backend",
+    "client": "npm run dev --prefix apps/monolith-frontend",
+    "data:import": "node apps/backend/seeder",
+    "data:destroy": "node apps/backend/seeder -d",
+    "graph": "nx graph",
+    "reset": "nx reset"
   },
-  "author": "Brad Traversy",
+  "author": "Brad Traversy (original), Pedro Silva (micro-frontends migration)",
   "license": "MIT",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "colors": "^1.4.0",
-    "cookie-parser": "^1.4.6",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.1",
-    "multer": "^1.4.5-lts.1"
-  },
   "devDependencies": {
-    "@types/express": "^4.17.17",
     "concurrently": "^7.6.0",
-    "markdown-toc": "^1.2.0",
-    "nodemon": "^2.0.21"
+    "nx": "^22.4.4"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }

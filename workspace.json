@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "monolith-frontend": "apps/monolith-frontend",
+    "backend": "apps/backend"
+  }
+}
