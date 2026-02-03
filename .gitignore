@@ -29,3 +29,8 @@ uploads/*jpg
 
 # API tests
 http
+
+
+
+.nx/cache
+.nx/workspace-data
