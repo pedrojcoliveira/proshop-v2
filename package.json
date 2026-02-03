@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "npm run dev --prefix apps/backend",
-    "client": "npm run dev --prefix apps/monolith-frontend",
+    "server": "node apps/backend/server.js",
+    "client": "npm start --prefix apps/monolith-frontend",
     "data:import": "node apps/backend/seeder",
     "data:destroy": "node apps/backend/seeder -d",
     "graph": "nx graph",
