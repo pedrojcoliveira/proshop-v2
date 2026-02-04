@@ -1,19 +1,16 @@
-import * as React from 'react';
-import NxWelcome from './nx-welcome';
-import { Link, Route, Routes } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 export function App() {
   return (
-    <React.Suspense fallback={null}>
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-      </ul>
-      <Routes>
-        <Route path='/' element={<NxWelcome title='shell' />} />
-      </Routes>
-    </React.Suspense>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <main style={{ flex: 1, padding: '20px' }}>
+        <h1>Welcome to Shell</h1>
+        <p>Application Shell with Module Federation</p>
+        <p>Footer successfully extracted from monolith!</p>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
 
