@@ -11,4 +11,6 @@ tslib_1.__exportStar(require("./lib/cart.types"), exports);
 tslib_1.__exportStar(require("./lib/order.types"), exports);
 // Auth types (extends user types)
 tslib_1.__exportStar(require("./lib/auth.types"), exports);
+// Cart context types
+tslib_1.__exportStar(require("./lib/cart-context.types"), exports);
 //# sourceMappingURL=index.js.map
