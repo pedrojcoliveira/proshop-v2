@@ -18,7 +18,9 @@ export interface UserProfile extends User {
 }
 export interface AuthState {
     userInfo: User | null;
+    token: string | null;
     isAuthenticated: boolean;
+    isAdmin: boolean;
     loading: boolean;
     error: string | null;
 }
