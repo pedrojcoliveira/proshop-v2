@@ -1,7 +1,13 @@
+import { Routes, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { AuthProvider } from '../contexts/AuthProvider';
 import { CartProvider } from '../contexts/CartProvider';
+import HomePage from '../pages/HomePage';
+import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
+import ProfilePage from '../pages/ProfilePage';
+import CartPage from '../pages/CartPage';
 
 export function App() {
   return (
@@ -10,12 +16,14 @@ export function App() {
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
           <Header />
           
-          <main style={{ flex: 1, padding: '20px' }}>
-            <h1>Welcome to Shell</h1>
-            <p>Application Shell with Module Federation</p>
-            <p> AuthContext integrated</p>
-            <p> CartContext integrated</p>
-            <p> Header with Auth & Cart integrated</p>
+          <main style={{ flex: 1 }}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/cart" element={<CartPage />} />
+            </Routes>
           </main>
 
           <Footer />
