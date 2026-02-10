@@ -46,7 +46,7 @@
       }
     },
     "serve": {
-      "executor": "@nx/react:module-federation-dev-server",
+      "executor": "@nx/webpack:dev-server",
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "shell:build",
@@ -60,21 +60,6 @@
         "production": {
           "buildTarget": "shell:build:production",
           "hmr": false
-        }
-      }
-    },
-    "serve-static": {
-      "executor": "@nx/react:module-federation-static-server",
-      "defaultConfiguration": "production",
-      "options": {
-        "serveTarget": "shell:serve"
-      },
-      "configurations": {
-        "development": {
-          "serveTarget": "shell:serve:development"
-        },
-        "production": {
-          "serveTarget": "shell:serve:production"
         }
       }
     }
