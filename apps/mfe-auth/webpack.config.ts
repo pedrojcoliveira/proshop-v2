@@ -8,15 +8,14 @@ export default composePlugins(
   withNx(),
   withReact(),
   (config) => {
-    // Desativar outputModule forcado pelo withReact
     if (config.experiments) {
       config.experiments.outputModule = false;
     }
 
     config.output = {
       ...config.output,
-      publicPath: "http://localhost:4200/",
-      uniqueName: "shell",
+      publicPath: "http://localhost:4201/",
+      uniqueName: "mfeAuth",
       module: false,
     };
 
@@ -32,27 +31,26 @@ export default composePlugins(
 
     config.plugins.push(
       new ModuleFederationPlugin({
-        name: "shell",
-        remotes: {
-          mfeAuth: "mfeAuth@http://localhost:4201/remoteEntry.js",
+        name: "mfeAuth",
+        filename: "remoteEntry.js",
+        library: { type: "var", name: "mfeAuth" },
+        exposes: {
+          "./LoginScreen": "./src/screens/LoginScreen.tsx",
         },
         shared: {
           react: {
             singleton: true,
             requiredVersion: false,
             strictVersion: false,
-            eager: true,
           },
           "react-dom": {
             singleton: true,
             requiredVersion: false,
             strictVersion: false,
-            eager: true,
           },
           "react-router-dom": {
             singleton: true,
             requiredVersion: false,
-            eager: true,
           },
         },
       })

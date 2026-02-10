@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@proshop/shared-types": ["libs/shared-types/src/index.ts"]
+      "@proshop/shared-types": ["libs/shared-types/src/index.ts"],
+      "mfeAuth/Module": ["apps/mfe-auth/src/remote-entry.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

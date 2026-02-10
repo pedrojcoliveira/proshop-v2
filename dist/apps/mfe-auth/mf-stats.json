@@ -1,0 +1,147 @@
+{
+  "id": "mfeAuth",
+  "name": "mfeAuth",
+  "metaData": {
+    "name": "mfeAuth",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "0.1.0",
+      "buildName": "mfe-auth"
+    },
+    "remoteEntry": {
+      "name": "remoteEntry.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "",
+      "api": ""
+    },
+    "globalName": "mfeAuth",
+    "pluginVersion": "0.21.6",
+    "prefetchInterface": false,
+    "publicPath": "auto"
+  },
+  "shared": [
+    {
+      "singleton": true,
+      "requiredVersion": "^18.2.0",
+      "shareScope": "default",
+      "strictVersion": false,
+      "eager": false,
+      "name": "react-dom",
+      "version": "18.2.0",
+      "id": "mfeAuth:react-dom",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "vendors-node_modules_react-dom_index_js.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^6.30.3",
+      "shareScope": "default",
+      "eager": false,
+      "name": "react-router-dom",
+      "version": "6.30.3",
+      "id": "mfeAuth:react-router-dom",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "vendors-node_modules_react-router-dom_dist_index_js.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./LoginScreen"
+      ]
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^18.2.0",
+      "shareScope": "default",
+      "strictVersion": false,
+      "eager": false,
+      "name": "react",
+      "version": "18.2.0",
+      "id": "mfeAuth:react",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "vendors-node_modules_react_index_js.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./LoginScreen"
+      ]
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "path": "./Module",
+      "id": "mfeAuth:Module",
+      "name": "Module",
+      "requires": [],
+      "file": "src\\remote-entry.ts",
+      "assets": {
+        "js": {
+          "sync": [
+            "vendors-node_modules_react-bootstrap_esm_Button_js-node_modules_react-bootstrap_esm_Container-98489b.js",
+            "__federation_expose_Module.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./LoginScreen",
+      "id": "mfeAuth:LoginScreen",
+      "name": "LoginScreen",
+      "requires": [
+        "react",
+        "react-router-dom"
+      ],
+      "file": "src\\screens\\LoginScreen.tsx",
+      "assets": {
+        "js": {
+          "sync": [
+            "vendors-node_modules_react-bootstrap_esm_Button_js-node_modules_react-bootstrap_esm_Container-98489b.js",
+            "__federation_expose_LoginScreen.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    }
+  ]
+}

@@ -40,8 +40,8 @@
     "@testing-library/react": "16.3.0",
     "@types/jest": "^30.0.0",
     "@types/node": "20.19.9",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
     "babel-jest": "^30.0.2",
     "concurrently": "^7.6.0",
     "eslint": "^9.8.0",
@@ -69,8 +69,14 @@
   },
   "dependencies": {
     "@module-federation/enhanced": "^0.21.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-router-dom": "6.30.3"
+  },
+  "overrides": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.66",
+    "@types/react-dom": "18.2.22"
   }
 }

@@ -1,0 +1,82 @@
+{
+  "name": "mfeAuth",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mfe-auth/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/mfe-auth",
+        "index": "apps/mfe-auth/src/index.html",
+        "baseHref": "/",
+        "main": "apps/mfe-auth/src/main.ts",
+        "tsConfig": "apps/mfe-auth/tsconfig.app.json",
+        "assets": ["apps/mfe-auth/src/favicon.ico", "apps/mfe-auth/src/assets"],
+        "styles": ["apps/mfe-auth/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "apps/mfe-auth/webpack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/mfe-auth/src/environments/environment.ts",
+              "with": "apps/mfe-auth/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/mfe-auth/webpack.config.prod.ts"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "mfeAuth:build",
+        "hmr": true,
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "mfeAuth:build:development"
+        },
+        "production": {
+          "buildTarget": "mfeAuth:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/react:module-federation-static-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "serveTarget": "mfeAuth:serve"
+      },
+      "configurations": {
+        "development": {
+          "serveTarget": "mfeAuth:serve:development"
+        },
+        "production": {
+          "serveTarget": "mfeAuth:serve:production"
+        }
+      }
+    }
+  }
+}
